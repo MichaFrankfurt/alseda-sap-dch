@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAP Digital Currency Hub – alseda Add-ons & Beratung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #1E2761;
+      --blue:   #0070F3;
+      --blue-l: #EBF3FF;
+      --orange: #FFB029;
+      --white:  #FFFFFF;
+      --off:    #F7F9FC;
+      --muted:  #5A6475;
+      --border: #DDE3EC;
+      --dark:   #1A202C;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
+    img  { display: block; max-width: 100%; height: auto; }
+    a    { color: var(--blue); text-decoration: none; }
+
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+    section { padding: 64px 0; }
+
+    /* ── Eyebrow ────────────────────────── */
+    .eyebrow {
+      display: inline-block;
+      background: var(--blue-l); color: var(--blue);
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 12px; border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    /* ── HERO ───────────────────────────── */
+    #hero {
+      background: linear-gradient(130deg, var(--navy) 0%, #163880 55%, #0a5bd4 100%);
+      padding: 72px 0 64px;
+    }
+    #hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.18; margin-bottom: 18px;
+    }
+    #hero h1 em { color: var(--orange); font-style: normal; }
+    #hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,.75);
+      max-width: 640px; margin-bottom: 30px;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+    }
+    .badge {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.85);
+      font-size: .8rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 20px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+    .dot-g { background: #4ade80; }
+    .dot-o { background: var(--orange); }
+
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 11px 26px; border-radius: 6px;
+      font-size: .9rem; font-weight: 600;
+      transition: opacity .15s, transform .15s;
+    }
+    .btn:hover { opacity: .87; transform: translateY(-1px); }
+    .btn-primary { background: var(--orange); color: var(--navy); }
+    .btn-ghost   { background: rgba(255,255,255,.12); color: var(--white); border: 1px solid rgba(255,255,255,.3); margin-left: 10px; }
+
+    /* ── DCH INTRO ──────────────────────── */
+    #dch { background: var(--off); }
+    #dch h2 { font-size: 1.75rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    #dch .intro-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: start;
+    }
+    #dch p { color: var(--muted); margin-bottom: 14px; font-size: .97rem; }
+    .fact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .fact-list li { display: flex; gap: 10px; font-size: .93rem; align-items: flex-start; }
+    .fact-list .ico {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--blue-l); color: var(--blue);
+      font-size: .65rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .why-box {
+      background: var(--navy); border-radius: 12px;
+      padding: 28px 26px;
+    }
+    .why-box h3 { color: var(--orange); font-size: 1rem; margin-bottom: 16px; }
+    .why-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .why-item:last-child { border: none; padding-bottom: 0; }
+    .why-num {
+      width: 26px; height: 26px; background: rgba(0,112,243,.3);
+      border-radius: 6px; font-size: .78rem; font-weight: 700;
+      color: #9DC3F5; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .why-item p { font-size: .87rem; color: rgba(255,255,255,.72); margin: 0; }
+
+    /* ── ARCHITECTURE ───────────────────── */
+    #arch { background: var(--white); }
+    #arch h2 { font-size: 1.75rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    #arch .sub { color: var(--muted); font-size: .97rem; margin-bottom: 32px; }
+    .arch-wrap {
+      border: 1px solid var(--border); border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 20px rgba(0,0,0,.07);
+      margin-bottom: 20px;
+    }
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 18px;
+      background: var(--off); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 22px;
+      justify-content: center;
+    }
+    .lg { display: flex; align-items: center; gap: 8px; font-size: .83rem; color: var(--dark); }
+    .ln { width: 32px; height: 3px; border-radius: 1px; flex-shrink: 0; }
+    .ln-orange { background: var(--orange); }
+    .ln-blue   { background: var(--blue); }
+    .ln-dash   {
+      background: repeating-linear-gradient(to right,
+        var(--blue) 0, var(--blue) 5px, transparent 5px, transparent 10px);
+    }
+    .bx {
+      width: 18px; height: 13px; border-radius: 2px; flex-shrink: 0;
+      border: 2px dashed var(--blue); background: var(--blue-l);
+    }
+
+    /* ── ADD-ONS ────────────────────────── */
+    #addons { background: var(--off); }
+    #addons h2 { font-size: 1.75rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    #addons .sub { color: var(--muted); font-size: .97rem; margin-bottom: 36px; }
+
+    .addon-row {
+      display: grid; gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 18px;
+    }
+    .addon-row-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover { box-shadow: 0 6px 28px rgba(0,0,0,.09); transform: translateY(-2px); }
+    .card.planned { background: #F8FBFF; border: 1.5px dashed #93C5FD; }
+    .card.project  { border: 1.5px solid var(--navy); }
+
+    .card-bar { height: 4px; }
+    .bar-blue   { background: var(--blue); }
+    .bar-future { background: linear-gradient(to right, #93C5FD, var(--blue)); }
+    .bar-navy   { background: var(--navy); }
+
+    .card-body { padding: 20px 22px; }
+
+    .status {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: .72rem; font-weight: 700;
+      padding: 2px 10px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .st-ok   { background: #DCFCE7; color: #166534; }
+    .st-plan { background: #DBEAFE; color: #1E40AF; }
+    .st-proj { background: #EDE9FE; color: #5B21B6; }
+
+    .card-body h3 { font-size: .98rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .card-body p  { font-size: .87rem; color: var(--muted); margin-bottom: 10px; }
+    .card-body ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .card-body li { font-size: .84rem; display: flex; gap: 7px; align-items: flex-start; color: var(--dark); }
+    .card-body li .arr { color: var(--blue); font-weight: 700; }
+    .card-body li .arr-f { color: #93C5FD; font-weight: 700; }
+    .card-body li .arr-n { color: var(--navy); font-weight: 700; }
+
+    /* ── CTA ────────────────────────────── */
+    #cta {
+      background: var(--navy); padding: 56px 0; text-align: center;
+    }
+    #cta h2 { font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    #cta p  { color: rgba(255,255,255,.65); font-size: .97rem; margin-bottom: 26px; }
+    #cta .btn-orange { background: var(--orange); color: var(--navy); }
+    #cta .btn-ghost  { margin-left: 12px; }
+
+    /* ── Responsive ─────────────────────── */
+    @media (max-width: 860px) {
+      #dch .intro-grid { grid-template-columns: 1fr; }
+      .addon-row       { grid-template-columns: 1fr; }
+      .addon-row-2     { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow" style="background:rgba(255,176,41,.18);color:var(--orange);">alseda Add-ons · SAP Digital Currency Hub</div>
+    <h1>
+      ERP trifft Blockchain –<br />
+      <em>heute, mit alseda.</em>
+    </h1>
+    <p>
+      SAP Digital Currency Hub verbindet klassische ERP-Systeme mit der Blockchain-Welt.
+      alseda liefert die Konnektoren und das Know-how, damit Ihre SAP-Landschaft
+      stablecoin-ready wird – schnell, sicher und ohne Eigenentwicklung.
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#addons" class="btn btn-primary">Add-ons entdecken</a>
+      <a href="#arch"   class="btn btn-ghost">Architektur ansehen</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><div class="dot dot-g"></div>2 Add-ons sofort verfügbar</div>
+      <div class="badge"><div class="dot dot-o"></div>SAP BTP · Cloud Foundry ready</div>
+      <div class="badge"><div class="dot dot-g"></div>SAP S/4HANA &amp; Non-SAP</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SAP DCH INTRO ══════════════════════════════════════════════ -->
+<section id="dch">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div>
+        <div class="eyebrow">Was ist SAP Digital Currency Hub?</div>
+        <h2>Die ERP-Brücke in die Blockchain-Welt</h2>
+        <p>
+          <strong>SAP Digital Currency Hub (DCH)</strong> ist SAPs Plattformlösung für
+          die Integration von Krypto-Assets, Stablecoin-Zahlungen und Custody-Anbindungen
+          direkt in bestehende SAP-Prozesse – Treasury, Payment Execution, Accounting
+          und Statutory Reporting.
+        </p>
+        <p>
+          DCH läuft auf <strong>SAP BTP (Cloud Foundry)</strong> und ist offen für alle
+          SAP S/4HANA-Varianten sowie Nicht-SAP-Systeme. Mit MiCA-Regulierung, institutionellem
+          Krypto-Wachstum und digitalem Euro rückt DCH vom Zukunftsprojekt zur
+          strategischen Notwendigkeit.
+        </p>
+        <ul class="fact-list">
+          <li><div class="ico">✓</div>Stablecoin-Zahlungen direkt aus SAP initiieren &amp; verbuchen</li>
+          <li><div class="ico">✓</div>Krypto-Bestand bewerten (IFRS / US-GAAP / HGB)</li>
+          <li><div class="ico">✓</div>Custody Provider anbinden – Wallets &amp; Transaktionen in SAP</li>
+          <li><div class="ico">✓</div>Regulatorisches Reporting für digitale Assets</li>
+        </ul>
+      </div>
+
+      <div class="why-box">
+        <h3>Warum jetzt handeln?</h3>
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <p><strong style="color:#fff;">MiCA &amp; Regulierung</strong> – EU-Rechtsrahmen schafft Handlungsdruck für alle Unternehmen mit Krypto-Exposure.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <p><strong style="color:#fff;">B2B-Stablecoins</strong> – USDC, EURC &amp; Co. ersetzen SWIFT-Zahlungen: günstiger, schneller, transparenter.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <p><strong style="color:#fff;">SAP investiert strategisch</strong> – DCH ist aktiv in der Weiterentwicklung. Früh einsteigen sichert Firstmover-Vorteil.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <p><strong style="color:#fff;">Institutional Custody</strong> – Krypto-Asset-Verwahrung wird Compliance-Anforderung, nicht Option.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARCHITECTURE ════════════════════════════════════════════════ -->
+<section id="arch">
+  <div class="wrap">
+    <div class="eyebrow">Solution Architecture</div>
+    <h2>Wie alles zusammenspielt</h2>
+    <p class="sub">
+      SAP DCH verbindet ERP-Systeme, Custody Provider und Blockchain-Infrastruktur
+      über standardisierte alseda-Konnektoren.
+    </p>
+
+    <div class="arch-wrap">
+      <img src="assets/solution-architecture.png"
+           alt="alseda – SAP Digital Currency Hub Solution Architecture"
+           style="width:100%;" />
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ADD-ONS ════════════════════════════════════════════════════ -->
+<section id="addons">
+  <div class="wrap">
+    <div class="eyebrow">alseda Add-ons</div>
+    <h2>Ihr schnellster Weg zu SAP DCH</h2>
+    <p class="sub">Vier spezialisierte Konnektoren verbinden SAP DCH mit Ihrer ERP-Welt, Custodians, Blockchain und Börsen.</p>
+
+    <!-- Row 1: 3 available/planned -->
+    <div class="addon-row">
+
+      <div class="card">
+        <div class="card-bar bar-blue"></div>
+        <div class="card-body">
+          <div class="status st-ok">✓ Verfügbar</div>
+          <h3>alseda ERP-DCH Connector</h3>
+          <p>Schnelle Anbindung von SAP S/4HANA und Nicht-SAP-ERP-Systemen an SAP DCH – ohne aufwändige Eigenentwicklung.</p>
+          <ul>
+            <li><span class="arr">→</span>SAP S/4HANA On-Premise, Private &amp; Public Cloud</li>
+            <li><span class="arr">→</span>Nicht-SAP ERP-Systeme</li>
+            <li><span class="arr">→</span>Ersetzt / ergänzt SAP Multi-Banking Connectivity</li>
+            <li><span class="arr">→</span>Keine tiefgreifenden SAP-Anpassungen nötig</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-bar bar-blue"></div>
+        <div class="card-body">
+          <div class="status st-ok">✓ Verfügbar</div>
+          <h3>alseda DCH-CUST Connector</h3>
+          <p>Flexible Multi-Custodian-Anbindung: Mehrere Custody Provider und Wallets gleichzeitig in SAP sichtbar und steuerbar.</p>
+          <ul>
+            <li><span class="arr">→</span>Coinbase Consumer API &amp; Advanced Trade API</li>
+            <li><span class="arr">→</span>Weitere institutionelle Custodians (erweiterbar)</li>
+            <li><span class="arr">→</span>Konten, Salden &amp; Transaktionen in SAP</li>
+            <li><span class="arr">→</span>Genehmigungen direkt aus SAP-Workflow</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card planned">
+        <div class="card-bar bar-future"></div>
+        <div class="card-body">
+          <div class="status st-plan">◷ In Entwicklung</div>
+          <h3>alseda DCH-CHAIN Connector</h3>
+          <p>Direkte Kommunikation mit Blockchain-Infrastruktur – On-Chain-Daten und Metriken im SAP DCH auswertbar.</p>
+          <ul>
+            <li><span class="arr-f">→</span>Blockchain Nodes, Explorers &amp; Smart Contracts</li>
+            <li><span class="arr-f">→</span>Transaktionsstatus on-chain in Echtzeit</li>
+            <li><span class="arr-f">→</span>Embedded Analytics für On-Chain-Metriken</li>
+            <li><span class="arr-f">→</span>Netzwerkgebühren &amp; Bestätigungszeiten</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: 2 cards -->
+    <div class="addon-row addon-row-2">
+
+      <div class="card planned">
+        <div class="card-bar bar-future"></div>
+        <div class="card-body">
+          <div class="status st-plan">◷ In Entwicklung</div>
+          <h3>alseda DCH-EXCH Connector</h3>
+          <p>Anbindung zentraler (CEX) und dezentraler (DEX) Krypto-Börsen – schließt den Kreislauf vom ERP zur Blockchain.</p>
+          <ul>
+            <li><span class="arr-f">→</span>CEX: Kursabfragen &amp; Order-Platzierung</li>
+            <li><span class="arr-f">→</span>DEX: Token Swaps on-chain</li>
+            <li><span class="arr-f">→</span>FIAT On-/Off-Ramping direkt aus SAP</li>
+            <li><span class="arr-f">→</span>Echtzeitkurse für Bewertung &amp; Hedging</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card project">
+        <div class="card-bar bar-navy"></div>
+        <div class="card-body">
+          <div class="status st-proj">⚙ Individuell</div>
+          <h3>Projekteinsatz &amp; Custom Integration</h3>
+          <p>Maßgeschneiderte SAP DCH-Integration für komplexe Systemlandschaften – schnell umgesetzt mit vorgefertigten alseda-Bausteinen.</p>
+          <ul>
+            <li><span class="arr-n">→</span>SAP &amp; Nicht-SAP, Single- &amp; Multi-System</li>
+            <li><span class="arr-n">→</span>Assessment, Implementierung &amp; Go-Live</li>
+            <li><span class="arr-n">→</span>Betrieb, SLA-Support &amp; SAP-Roadmap-Alignment</li>
+            <li><span class="arr-n">→</span>Vorgefertigte Bausteine = kurze Time-to-Value</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;background:var(--blue-l);border:1px solid #BFDBFE;border-radius:10px;padding:20px 26px;display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:1.3rem;line-height:1;margin-top:2px;">☁️</div>
+      <div>
+        <p style="font-size:.93rem;color:var(--dark);margin-bottom:6px;">
+          <strong>Deployment: SAP BTP – und weit darüber hinaus.</strong>
+          Im Standard-Szenario werden alle alseda Add-ons auf der <strong>SAP Business Technology Platform (BTP)</strong> installiert und betrieben – cloudnativ, skalierbar und vollständig in die SAP-Welt integriert.
+        </p>
+        <p style="font-size:.93rem;color:var(--muted);margin:0;">
+          Hybrid-Varianten sind selbstverständlich möglich: Teile der Lösung können On-Premise betrieben oder in Nicht-SAP-Systemlandschaften integriert werden. alseda ist fest in der SAP BTP-Welt verankert – aber flexibel genug für jede Infrastruktur.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HINTERGRUND ══════════════════════════════════════════════════ -->
+<section id="hintergrund" style="background:var(--white);">
+  <div class="wrap">
+    <div class="eyebrow">Hintergrund &amp; Einordnung</div>
+    <h2 style="font-size:1.75rem;font-weight:700;color:var(--navy);margin-bottom:20px;">SAP Digital Currency Hub – die strategische Plattform für Stablecoin-Zahlungen</h2>
+    <p style="color:var(--muted);font-size:.97rem;margin-bottom:14px;">
+      Die Finanzwelt steht vor einem strukturellen Wandel: Stablecoins, tokenisierte Assets und digitale Zahlungsinfrastrukturen werden in den nächsten Jahren zum Standard im Unternehmensfinanzwesen. SAP hat diese Entwicklung früh erkannt und mit dem <strong>SAP Digital Currency Hub</strong> eine dedizierte Plattformlösung geschaffen – vollständig integriert in die SAP Business Technology Platform (BTP), für Treasury, Zahlungsausführung, Accounting und regulatorisches Reporting.
+    </p>
+    <p style="color:var(--muted);font-size:.97rem;margin-bottom:24px;">
+      Mit MiCA-Regulierung, wachsendem institutionellen Interesse an USDC und EURC und dem digitalen Euro als strategischem Horizont ist SAP DCH kein Zukunftsprojekt mehr – sondern eine operative Notwendigkeit.
+    </p>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:28px 30px;margin-bottom:20px;">
+      <p style="color:var(--dark);font-size:.97rem;margin-bottom:12px;">
+        <strong>alseda begleitet Unternehmen auf diesem Weg.</strong> Als SAP-Partner mit über 20 Jahren Erfahrung in SAP-Technologien kennen wir die Prozesstiefe, die es braucht, um neue Plattformen wie SAP DCH sicher und nachhaltig einzuführen. Unsere Expertise reicht von klassischen SAP FI/CO- und Treasury-Implementierungen bis hin zu modernen BTP-Integrationen und Blockchain-Infrastruktur.
+      </p>
+      <p style="color:var(--muted);font-size:.97rem;margin:0;">
+        Die alseda Add-ons sind das Ergebnis dieser Erfahrung: praxisnah, sofort einsetzbar und auf die Realität komplexer SAP-Landschaften ausgelegt.
+      </p>
+    </div>
+    <p style="font-size:.9rem;color:var(--muted);">
+      Mehr über SAP Digital Currency Hub:
+      <a href="https://www.sap.com/products/financial-management/digital-currency-hub.html" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;">sap.com →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CTA ══════════════════════════════════════════════════════════ -->
+<section id="cta">
+  <div class="wrap">
+    <h2>Bereit für SAP Digital Currency Hub?</h2>
+    <p>Sprechen Sie mit unseren Experten – wir zeigen Ihnen in einem persönlichen Demo-Termin,<br />wie alseda Add-ons Ihre SAP-Landschaft in wenigen Wochen blockchain-ready machen.</p>
+    <a href="mailto:michael.rubin@alseda.com" class="btn btn-orange">Demo anfragen</a>
+    <a href="mailto:michael.rubin@alseda.com" class="btn btn-ghost">michael.rubin@alseda.com</a>
+  </div>
+</section>
+
+</body>
+</html>
